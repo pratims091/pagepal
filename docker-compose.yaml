@@ -1,0 +1,47 @@
+services:
+  pagepal:
+    build: .
+    container_name: pagepal
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    command: python -m main
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    depends_on:
+      crawl4ai:
+        condition: service_healthy
+    networks:
+      - pagepal_network
+
+  crawl4ai:
+    image: unclecode/crawl4ai:basic-amd64
+    container_name: crawl4ai
+    environment:
+      - CRAWL4AI_API_TOKEN=${CRAWL4AI_API_TOKEN}
+    ports:
+      - "11235:11235"
+    volumes:
+      - crawl4ai-volume:/dev/shm
+    networks:
+      - pagepal_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11235/health"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 5s
+
+volumes:
+  crawl4ai-volume:
+
+networks:
+  pagepal_network:
+    name: pagepal_network
+    driver: bridge
