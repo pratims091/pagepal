@@ -34,7 +34,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         " 2️⃣ Wait for me to crawl it\n"
         " 3️⃣ Start asking questions\\!\n\n"
         " 🔗 i’m *open\\-source\\!* Contribute or fork me: [GitHub](https://github.com/pratims091/pagepal)\n\n"
-        " 📜 *Privacy Policy & Disclaimer:*  Please respect website terms before using\\. I’m for educational purposes only and may make mistakes [Read here](https://github.com/pratims091/pagepal#privacy-policy)\n\n"
+        " 📜 *Privacy Policy & Disclaimer:*  Please respect website terms before using\\. I’m for educational purposes only and may make mistakes [Read here](https://github.com/pratims091/pagepal/tree/dev?tab=readme-ov-file#privacy-policy)\n\n"
         " _Type `/help` to see available commands\\._ 🚀",
         parse_mode="MarkdownV2",
         disable_web_page_preview=True,

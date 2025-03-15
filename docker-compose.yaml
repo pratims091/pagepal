@@ -1,6 +1,9 @@
 services:
   pagepal:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME}/pagepal:${IMAGE_TAG:-latest}
     container_name: pagepal
     restart: unless-stopped
     env_file:
