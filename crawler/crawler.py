@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional
 from config import config
 
 # Your crawler4ai package - these are placeholders that should match your actual crawler4ai imports
-from tools.crawl4ai import crawl_website, poll_crawl_result
+from tools.crawl4ai import crawl, poll_crawl_result
 from utils.logger import crawler_logger as logger
 
 
@@ -40,7 +40,7 @@ async def crawl_url(url: str, timeout: Optional[int] = None) -> List[Dict[str, A
         crawler_host = config.CRAWL4AI_HOST
 
         # Initiate crawling
-        task_id = crawl_website(url, host=crawler_host)
+        task_id = crawl(urls=[url], host=crawler_host)
         logger.info(f"Crawling initiated with task ID: {task_id}")
 
         # Define async timeout
