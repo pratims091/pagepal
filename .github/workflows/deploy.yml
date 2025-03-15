@@ -119,6 +119,30 @@ jobs:
           key: ${{ env.SSH_PRIVATE_KEY }}
           script: |
             cd "${{ env.APP_PATH }}"
-            docker login -u ${{ env.DOCKERHUB_USERNAME }} -p ${{ env.DOCKERHUB_PAT }}
+
+            # Login to Docker Hub
+            docker login -u pratims091 -p ${{ env.DOCKERHUB_PAT }}
+
+            # Pull latest images
             docker compose pull
+
+            # Gracefully stop existing containers
+            echo "Gracefully stopping existing containers..."
+            if docker compose ps --services | grep -q pagepal; then
+              docker compose stop --timeout 30
+              echo "Services stopped gracefully"
+            else
+              echo "No running services found"
+            fi
+
+            # Start new containers with removal of orphans
+            echo "Starting new containers..."
             docker compose up -d --remove-orphans
+
+            # Verify deployment
+            echo "Deployment complete. Container status:"
+            docker compose ps
+
+            # Remove any dangling images to free up space
+            echo "Cleaning up unused images..."
+            docker image prune -f
