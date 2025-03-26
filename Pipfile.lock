@@ -2110,12 +2110,12 @@
         },
         "supabase": {
             "hashes": [
-                "sha256:452574d34bd978c8d11b5f02b0182b48e8854e511c969483c83875ec01495f11",
-                "sha256:6cfccc055be21dab311afc5e9d5b37f3a4966f8394703763fbc8f8e86f36eaa6"
+                "sha256:397c3fc1e8cfe167a3de3e20b79a2952f2b2aa572a1aaf3c3fdd51d4b1ee065e",
+                "sha256:fd5919ceff91c61b6be05fa8c05b0d7329218598cc05edbdacc141c0c808183c"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9' and python_version < '4.0'",
-            "version": "==2.13.0"
+            "version": "==2.14.0"
         },
         "supafunc": {
             "hashes": [
