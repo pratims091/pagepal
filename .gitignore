@@ -38,6 +38,7 @@ logs/*
 
 # Vector store
 vector_store/
+data/
 
 # IDE files
 .idea/

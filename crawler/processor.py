@@ -6,7 +6,7 @@ Processes crawled content into documents.
 from typing import Any, Dict, List
 
 from langchain.schema import Document
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter, Language
 
 from utils.logger import crawler_logger as logger
 
@@ -36,7 +36,7 @@ def process_crawl_results(
 
             # Get the URL and content
             page_url = result.get("url", "")
-            content = result.get("cleaned_html", "") or result.get("markdown", "")
+            content = result.get("markdown", "") 
 
             if not content:
                 logger.warning(f"Skipping empty content for URL: {page_url}")
@@ -80,8 +80,11 @@ def chunk_documents(documents: List[Document], **kwargs) -> List[Document]:
         separators = kwargs.get("separators", ["\n\n", "\n", ". ", " ", ""])
 
         # Create text splitter
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=chunk_size, chunk_overlap=chunk_overlap, separators=separators
+        text_splitter = RecursiveCharacterTextSplitter.from_language(
+            language=Language.MARKDOWN,
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap,
+            separators=separators
         )
 
         # Split documents
