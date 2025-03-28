@@ -77,14 +77,12 @@ def chunk_documents(documents: List[Document], **kwargs) -> List[Document]:
         # Default chunk settings
         chunk_size = kwargs.get("chunk_size", 1500)
         chunk_overlap = kwargs.get("chunk_overlap", 150)
-        separators = kwargs.get("separators", ["\n\n", "\n", ". ", " ", ""])
 
         # Create text splitter
         text_splitter = RecursiveCharacterTextSplitter.from_language(
             language=Language.MARKDOWN,
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
-            separators=separators
         )
 
         # Split documents
