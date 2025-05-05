@@ -2009,11 +2009,11 @@
         },
         "realtime": {
             "hashes": [
-                "sha256:0cc1b4a097acf9c0bd3a2f1998170de47744574c606617285113ddb3021e54ca",
-                "sha256:760308d5310533f65a9098e0b482a518f6ad2f3c0f2723e83cf5856865bafc5d"
+                "sha256:09ff3b61ac928413a27765640b67362380eaddba84a7037a17972a64b1ac52f7",
+                "sha256:152febabc822ce60e11f202842c5aa6858ae4bd04920bfd6a00c1dd492f426b0"
             ],
             "markers": "python_version >= '3.9' and python_version < '4.0'",
-            "version": "==2.4.2"
+            "version": "==2.4.3"
         },
         "requests": {
             "hashes": [
@@ -2167,12 +2167,12 @@
         },
         "supabase": {
             "hashes": [
-                "sha256:2e66289ad74ae9c4cb04a69f9de00cd2ce880cd890de23269a40ac5b69151d26",
-                "sha256:a665c7ab6c8ad1d80609ab62ad657f66fdaf38070ec9e0db5c7887fd72b109c0"
+                "sha256:66e847dab9346062aa6a25b4e81ac786b972c5d4299827c57d1d5bd6a0346070",
+                "sha256:749299cdd74ecf528f52045c1e60d9dba81cc2054656f754c0ca7fba0dd34827"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9' and python_version < '4.0'",
-            "version": "==2.15.0"
+            "version": "==2.15.1"
         },
         "supafunc": {
             "hashes": [
